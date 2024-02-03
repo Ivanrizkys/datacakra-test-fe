@@ -12,6 +12,7 @@ import Pagination from "@/components/ui/pagination";
 import { UpdateTouristRequest } from "@/types/tourist";
 import { useQueryClient } from "@tanstack/react-query";
 import TouristTable from "@/components/organism/TouristTable";
+import PrivateRoute from "@/components/template/PrivateRoute";
 import LoaderTable from "@/components/organism/TouristTable/Loader";
 
 function Dashboard() {
@@ -145,46 +146,48 @@ function Dashboard() {
   );
 
   return (
-    <main className="px-6 md:px-12 pt-24 pb-8">
-      <h1 className="text-foreground text-2xl font-bold">
-        Welcome {profile?.name}!
-      </h1>
-      <p className="text-muted-foreground text-sm">
-        This in your list tourist that you can find and modified!
-      </p>
-      <div className="mt-8">
-        {isPending ? (
-          <LoaderTable />
-        ) : (
-          <>
-            {data?.data && (
-              <TouristTable
-                data={data.data}
-                dialogEdit={dialogEdit}
-                dialogCreate={dialogCreate}
-                dialogDelete={dialogDelete}
-                touristData={touristData}
-                setDeletedId={setDeletedId}
-                setDialogCreate={setDialogCreate}
-                setDialogDelete={setDialogDelete}
-                setDialogEdit={setDialogEdit}
-                setTouristData={setTouristData}
-                handleEditTourist={handleEditTourist}
-                handleCreateTourist={handleCreateTourist}
-                handleDeleteTourist={handleDeleteTourist}
-              />
-            )}
-          </>
-        )}
-      </div>
-      <div className="mt-4">
-        <Pagination
-          page={page}
-          totalPage={data?.total_pages}
-          setPage={setPage}
-        />
-      </div>
-    </main>
+    <PrivateRoute>
+      <main className="px-6 md:px-12 pt-24 pb-8">
+        <h1 className="text-foreground text-2xl font-bold">
+          Welcome {profile?.name}!
+        </h1>
+        <p className="text-muted-foreground text-sm">
+          This in your list tourist that you can find and modified!
+        </p>
+        <div className="mt-8">
+          {isPending ? (
+            <LoaderTable />
+          ) : (
+            <>
+              {data?.data && (
+                <TouristTable
+                  data={data.data}
+                  dialogEdit={dialogEdit}
+                  dialogCreate={dialogCreate}
+                  dialogDelete={dialogDelete}
+                  touristData={touristData}
+                  setDeletedId={setDeletedId}
+                  setDialogCreate={setDialogCreate}
+                  setDialogDelete={setDialogDelete}
+                  setDialogEdit={setDialogEdit}
+                  setTouristData={setTouristData}
+                  handleEditTourist={handleEditTourist}
+                  handleCreateTourist={handleCreateTourist}
+                  handleDeleteTourist={handleDeleteTourist}
+                />
+              )}
+            </>
+          )}
+        </div>
+        <div className="mt-4">
+          <Pagination
+            page={page}
+            totalPage={data?.total_pages}
+            setPage={setPage}
+          />
+        </div>
+      </main>
+    </PrivateRoute>
   );
 }
 
