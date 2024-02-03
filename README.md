@@ -1,30 +1,46 @@
-# React + TypeScript + Vite
+# Frontend Test - Ivan Rizky Saputra
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![thumbnail](https://raw.githubusercontent.com/Ivanrizkys/datacakra-test-fe/main/public/dashboard-login.png)
 
-Currently, two official plugins are available:
+<p align="center">
+<a href="https://hilarious-phoenix-30ffee.netlify.app/">Live Demo</a>
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This is tourist management dashboard build with React - Typesctript and ShadcnUI. This website was created to follow the recruitment process at Datachakra
 
-## Expanding the ESLint configuration
+## Theme
+This website is available in two themes dark and light
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+![dark](https://raw.githubusercontent.com/Ivanrizkys/datacakra-test-fe/main/public/dashboard-dark.png)
 
-- Configure the top-level `parserOptions` property like this:
+![light](https://raw.githubusercontent.com/Ivanrizkys/datacakra-test-fe/main/public/dashboard-light.png)
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+## Features
+- Login
+- Register
+- See user profile
+- See list tourist
+- See detail tourist
+- Update tourist
+- Create new tourist
+- Delete Tourist
+
+## Credential
+To be able to enter the dashboard, you must log in first. For this reason, you need to create an account first on the register page. However, you can also use the credentials below if you don't want to carry out the registration process
+```bash
+user 1
+email: hanare@gmail.com
+password: hanare
+
+user2
+email: badu@gmail.com
+password: hahahihi
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Run on Local
+- Clone this github repository
+- Enter directory
+- Install all deppendency using "npm install" or "yarn"
+- Setup ".env" file, you can check file ".env.example"
+- Then, run project on terminal using "npm run dev" or "yarn dev"
+- Open [http://localhost:5173/](http://localhost:5173/) with your browser to see the result.
