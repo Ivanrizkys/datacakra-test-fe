@@ -1,13 +1,17 @@
+import useAuth from "@/hooks/useAuth";
 import { Moon, Sun } from "lucide-react";
 import { useGetMe } from "@/service/auth";
 import { useTheme } from "@/context/ThemeProvider";
 import { Link, useLocation } from "react-router-dom";
 
 function Navbar() {
+  const auth = useAuth()
   const { data } = useGetMe();
   const { setTheme } = useTheme();
   const { pathname } = useLocation();
 
+  if (!auth) return null
+  
   return (
     <nav className="fixed top-0 z-10  w-full bg-background/30 backdrop-blur-xl transform-gpu flex items-center justify-between h-16 px-6 md:px-12 border-b">
       <ul className="flex items-center gap-6">
