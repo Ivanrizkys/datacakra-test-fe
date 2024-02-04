@@ -15,7 +15,7 @@ import {
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-export default function LoaderTable() {
+export default function TouristTableLoader() {
   const columns: ColumnDef<number>[] = [
     {
       accessorKey: "id",
