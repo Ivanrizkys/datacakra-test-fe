@@ -13,7 +13,7 @@ import { UpdateTouristRequest } from "@/types/tourist";
 import { useQueryClient } from "@tanstack/react-query";
 import TouristTable from "@/components/organism/TouristTable";
 import PrivateRoute from "@/components/template/PrivateRoute";
-import LoaderTable from "@/components/organism/TouristTable/Loader";
+import TouristTableLoader from "@/components/organism/TouristTable/Loader";
 
 function Dashboard() {
   const [page, setPage] = useState<number>(1);
@@ -29,12 +29,15 @@ function Dashboard() {
   });
 
   const queryClient = useQueryClient();
+
+  // * mutation and queries
   const { data: profile } = useGetMe();
   const { data, isPending } = useGetListTourist(`${page}`);
   const { mutate: doEdit } = useEditTourist();
   const { mutate: doDelete } = useDeleteTourist();
   const { mutate: doCreate } = useCreateTourist();
 
+  // * handler function to create new tourist
   const handleCreateTourist = useCallback(
     (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
@@ -50,6 +53,9 @@ function Dashboard() {
         },
         {
           onSuccess() {
+            queryClient.invalidateQueries({
+              queryKey: ["tourist"],
+            });
             toast.custom(() => (
               <Toast variant="success" message="Sucesfully create a tourist!" />
             ));
@@ -70,9 +76,10 @@ function Dashboard() {
         }
       );
     },
-    [doCreate]
+    [doCreate, queryClient]
   );
 
+  // * handler function to edit tourist
   const handleEditTourist = useCallback(
     (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
@@ -115,6 +122,7 @@ function Dashboard() {
     [doEdit, page, queryClient, touristData.id]
   );
 
+  // * handler functin to delete tourist
   const handleDeleteTourist = useCallback(
     (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
       e.preventDefault();
@@ -156,7 +164,7 @@ function Dashboard() {
         </p>
         <div className="mt-8">
           {isPending ? (
-            <LoaderTable />
+            <TouristTableLoader />
           ) : (
             <>
               {data?.data && (
