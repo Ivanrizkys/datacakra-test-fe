@@ -6,14 +6,8 @@
 <a href="https://hilarious-phoenix-30ffee.netlify.app/">Live Demo</a>
 </p>
 
-This is tourist management dashboard build with React - Typesctript and ShadcnUI. This website was created to follow the recruitment process at Datachakra
+This is tourist management dashboard build with React - Typesctript and ShadcnUI. This website was created to follow the recruitment process at Datacakra.
 
-## Theme
-This website is available in two themes dark and light
-
-![dark](https://raw.githubusercontent.com/Ivanrizkys/datacakra-test-fe/main/public/dashboard-dark.png)
-
-![light](https://raw.githubusercontent.com/Ivanrizkys/datacakra-test-fe/main/public/dashboard-light.png)
 
 ## Features
 - Login
@@ -27,12 +21,13 @@ This website is available in two themes dark and light
 
 ## Credential
 To be able to enter the dashboard, you must log in first. For this reason, you need to create an account first on the register page. However, you can also use the credentials below if you don't want to carry out the registration process
+
 ```bash
 user 1
 email: hanare@gmail.com
 password: hanare
 
-user2
+user 2
 email: badu@gmail.com
 password: hahahihi
 ```
